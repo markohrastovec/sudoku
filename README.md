@@ -11,3 +11,9 @@ It turns out that usually easy sudokus do not reach a point of
 such a decision. On the other hand, harder sudokus require to
 choose one of promising options, which might lead to unsolvable
 end.
+
+#TODO
+
+- Entering sudoku could be made by entering data to a program and not
+  to source.
+- Output should be nicer.
