@@ -12,6 +12,9 @@ such a decision. On the other hand, harder sudokus require to
 choose one of promising options, which might lead to unsolvable
 end.
 
+There is no doubt the program can be improved or made better, but
+I only did it to answer a question about ambiguity.
+
 # TODO
 
 - Entering sudoku could be made by entering data to a program and not
