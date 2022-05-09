@@ -75,7 +75,7 @@ void main () {
       }
     }
     else {
-      print ('V vneseni vrstici je napaka. Poskusite ponovno.');
+      print ('There is an error in the entered line. Try again.');
       i--;
     }
   }
