@@ -3,62 +3,13 @@ import "dart:io";
 
 void main () {
   int improvement = 0;
+  List<List<List<int>>> sudoku = <List<List<int>>>[];
   List<List<List<List<int>>>> solution = <List<List<List<int>>>>[];
-  // hard
-  /*List<List<int>> row0 = <List<int>>[[ ], [4], [ ], [ ], [9], [ ], [ ], [ ], [ ]];
-  List<List<int>> row1 = <List<int>>[[7], [ ], [ ], [ ], [3], [6], [ ], [ ], [ ]];
-  List<List<int>> row2 = <List<int>>[[ ], [ ], [ ], [8], [ ], [7], [2], [ ], [ ]];
-  List<List<int>> row3 = <List<int>>[[ ], [ ], [ ], [ ], [5], [ ], [ ], [ ], [ ]];
-  List<List<int>> row4 = <List<int>>[[ ], [ ], [ ], [ ], [ ], [ ], [9], [3], [ ]];
-  List<List<int>> row5 = <List<int>>[[ ], [2], [3], [ ], [4], [ ], [5], [ ], [6]];
-  List<List<int>> row6 = <List<int>>[[ ], [5], [ ], [ ], [7], [ ], [ ], [ ], [3]];
-  List<List<int>> row7 = <List<int>>[[ ], [ ], [ ], [5], [ ], [ ], [ ], [ ], [2]];
-  List<List<int>> row8 = <List<int>>[[ ], [1], [6], [3], [ ], [ ], [8], [ ], [ ]];*/
-  // hard
-  /*List<List<int>> row0 = <List<int>>[[ ], [ ], [ ], [ ], [8], [ ], [7], [ ], [ ]];
-  List<List<int>> row1 = <List<int>>[[ ], [ ], [1], [ ], [5], [2], [ ], [4], [ ]];
-  List<List<int>> row2 = <List<int>>[[3], [ ], [2], [1], [ ], [ ], [ ], [ ], [ ]];
-  List<List<int>> row3 = <List<int>>[[7], [8], [3], [ ], [2], [ ], [ ], [ ], [ ]];
-  List<List<int>> row4 = <List<int>>[[ ], [9], [ ], [ ], [ ], [ ], [ ], [7], [ ]];
-  List<List<int>> row5 = <List<int>>[[ ], [ ], [ ], [ ], [7], [ ], [3], [8], [1]];
-  List<List<int>> row6 = <List<int>>[[ ], [ ], [ ], [ ], [ ], [5], [8], [ ], [4]];
-  List<List<int>> row7 = <List<int>>[[ ], [1], [ ], [2], [6], [ ], [5], [ ], [ ]];
-  List<List<int>> row8 = <List<int>>[[ ], [ ], [5], [ ], [3], [ ], [ ], [ ], [ ]];*/
-  // medium
-  /*List<List<int>> row0 = <List<int>>[[ ], [ ], [9], [ ], [3], [8], [ ], [ ], [ ]];
-  List<List<int>> row1 = <List<int>>[[4], [ ], [ ], [7], [ ], [6], [ ], [ ], [ ]];
-  List<List<int>> row2 = <List<int>>[[ ], [ ], [ ], [1], [ ], [9], [6], [ ], [8]];
-  List<List<int>> row3 = <List<int>>[[9], [ ], [ ], [ ], [ ], [ ], [8], [ ], [ ]];
-  List<List<int>> row4 = <List<int>>[[ ], [4], [6], [ ], [ ], [ ], [1], [2], [ ]];
-  List<List<int>> row5 = <List<int>>[[ ], [ ], [7], [ ], [ ], [ ], [ ], [ ], [5]];
-  List<List<int>> row6 = <List<int>>[[8], [ ], [4], [9], [ ], [1], [ ], [ ], [ ]];
-  List<List<int>> row7 = <List<int>>[[ ], [ ], [ ], [4], [ ], [2], [ ], [ ], [ ]];
-  List<List<int>> row8 = <List<int>>[[ ], [ ], [ ], [8], [7], [ ], [9], [ ], [ ]];*/
-  // easy
-  /*List<List<int>> row0 = <List<int>>[[ ], [ ], [ ], [ ], [8], [2], [ ], [3], [ ]];
-  List<List<int>> row1 = <List<int>>[[ ], [4], [7], [ ], [ ], [9], [ ], [2], [8]];
-  List<List<int>> row2 = <List<int>>[[ ], [ ], [9], [ ], [ ], [ ], [5], [ ], [ ]];
-  List<List<int>> row3 = <List<int>>[[ ], [3], [ ], [ ], [2], [5], [ ], [1], [ ]];
-  List<List<int>> row4 = <List<int>>[[ ], [7], [ ], [ ], [ ], [ ], [ ], [ ], [2]];
-  List<List<int>> row5 = <List<int>>[[4], [9], [ ], [7], [3], [ ], [ ], [ ], [5]];
-  List<List<int>> row6 = <List<int>>[[9], [ ], [8], [3], [1], [ ], [ ], [ ], [4]];
-  List<List<int>> row7 = <List<int>>[[ ], [2], [ ], [6], [ ], [4], [ ], [ ], [ ]];
-  List<List<int>> row8 = <List<int>>[[5], [1], [4], [ ], [ ], [ ], [6], [ ], [3]];*/
-  // easy
-  /*List<List<int>> row0 = <List<int>>[[7], [8], [ ], [5], [ ], [ ], [ ], [ ], [ ]];
-  List<List<int>> row1 = <List<int>>[[ ], [6], [ ], [ ], [ ], [ ], [2], [ ], [ ]];
-  List<List<int>> row2 = <List<int>>[[9], [ ], [5], [ ], [7], [6], [ ], [ ], [ ]];
-  List<List<int>> row3 = <List<int>>[[4], [5], [ ], [ ], [6], [ ], [9], [ ], [3]];
-  List<List<int>> row4 = <List<int>>[[ ], [ ], [6], [9], [5], [8], [1], [ ], [ ]];
-  List<List<int>> row5 = <List<int>>[[2], [ ], [1], [ ], [3], [ ], [ ], [6], [5]];
-  List<List<int>> row6 = <List<int>>[[ ], [ ], [ ], [7], [2], [ ], [5], [ ], [6]];
-  List<List<int>> row7 = <List<int>>[[ ], [ ], [7], [ ], [ ], [ ], [ ], [4], [ ]];
-  List<List<int>> row8 = <List<int>>[[ ], [ ], [ ], [ ], [ ], [5], [ ], [8], [9]];*/
+  
   print ('Enter your sudoku row by row. Enter nine characters for each row. Use spaces for empty fields.');
-  List<List<List<int>>> row = <List<List<int>>>[];
   RegExp regex = RegExp (r"[0-9 ]{9}");
   for (int i = 0; i < 9; i++) {
-    row.add (<List<int>>[]);
+    sudoku.add (<List<int>>[]);
     print ('Enter row ${i + 1}:');
     print ('123456789');
     print ('_________');
@@ -67,20 +18,19 @@ void main () {
       for (int j = 0; j < 9; j++) {
         String n = line.substring (j, j + 1);
         if (n != ' ') {
-          row[i].add (<int>[int.parse (n)]);
+          sudoku[i].add (<int>[int.parse (n)]);
         }
         else {
-          row[i].add (<int>[]);
+          sudoku[i].add (<int>[]);
         }
       }
     }
     else {
       print ('There is an error in the entered line. Try again.');
-      row.removeAt (i);
+      sudoku.removeAt (i);
       i--;
     }
   }
-  List<List<List<int>>> sudoku = <List<List<int>>>[row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8]];
   print ("Starting sudoku");
   print_sudoku (sudoku);
   for (int i = 0; i < sudoku.length; i++) {
