@@ -17,6 +17,5 @@ I only did it to answer a question about ambiguity.
 
 # TODO
 
-- Entering sudoku could be made by entering data to a program and not
-  to source.
 - Output should be nicer.
+- Trailing spaces could be omitted when entering lines.
