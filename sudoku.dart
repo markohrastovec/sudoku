@@ -76,6 +76,7 @@ void main () {
     }
     else {
       print ('There is an error in the entered line. Try again.');
+      row.removeAt (i);
       i--;
     }
   }
