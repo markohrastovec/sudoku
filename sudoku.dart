@@ -79,6 +79,8 @@ void main () {
           }
           else if (solution[s][i][j].length < 1) {
             // should never come here; remove the solution as it is not ok
+            print ("Remove solution number $s from ${solution.length} solutions:");
+            print_sudoku (solution[s]);
             solution.removeAt(s);
             s--;
           }
@@ -90,6 +92,8 @@ void main () {
           print_sudoku(solution[s]);
         }
         if (improvement < 0) {
+          print ("Remove solution number $s from ${solution.length} solutions:");
+          print_sudoku (solution[s]);
           solution.removeAt(s);
           s--;
         }
